@@ -35,7 +35,7 @@ function App() {
     
     // Check if we should show online store based on URL
     const path = window.location.pathname;
-    setIsOnlineStore(path.startsWith('/online-store'));
+    setIsOnlineStore(path.startsWith('/online-store') || path === '/');
   }, []);
 
   const handleLogin = () => {

@@ -192,7 +192,7 @@ const OnlineStoreApp: React.FC = () => {
               />
             }
           />
-          <Route path="/" element={<Navigate to="/online-store" replace />} />
+          <Route path="/online-store/*" element={<Navigate to="/online-store" replace />} />
         </Routes>
       </main>
 
