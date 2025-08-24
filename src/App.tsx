@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 // Admin Components
@@ -27,15 +27,12 @@ function App() {
   const [user, setUser] = useState<User | null>(null);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [isOnlineStore, setIsOnlineStore] = useState(false);
+  const location = useLocation();
+  const isOnlineStore = location.pathname.startsWith('/online-store');
 
   useEffect(() => {
     const currentUser = getCurrentUser();
     setUser(currentUser);
-    
-    // Check if we should show online store based on URL
-    const path = window.location.pathname;
-    setIsOnlineStore(path.startsWith('/online-store') || path === '/');
   }, []);
 
   const handleLogin = () => {
@@ -95,9 +92,9 @@ function App() {
   // Show online store if URL starts with /online-store
   if (isOnlineStore) {
     return (
-      <Router>
+      <>
         <OnlineStoreApp />
-      </Router>
+      </>
     );
   }
 

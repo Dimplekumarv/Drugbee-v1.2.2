@@ -136,7 +136,7 @@ const OnlineStoreApp: React.FC = () => {
       <main className="pb-20 pt-16">
         <Routes>
           <Route
-            path="/online-store"
+            path="/"
             element={
               <HomePage
                 user={user}
@@ -145,7 +145,7 @@ const OnlineStoreApp: React.FC = () => {
             }
           />
           <Route
-            path="/online-store/store"
+            path="/store"
             element={
               <StorePage
                 onAddToCart={addToCart}
@@ -156,7 +156,7 @@ const OnlineStoreApp: React.FC = () => {
             }
           />
           <Route
-            path="/online-store/cart"
+            path="/cart"
             element={
               <CartPage
                 cartItems={cartItems}
@@ -167,7 +167,7 @@ const OnlineStoreApp: React.FC = () => {
             }
           />
           <Route
-            path="/online-store/account"
+            path="/account"
             element={
               <AccountPage
                 user={user}
@@ -177,7 +177,7 @@ const OnlineStoreApp: React.FC = () => {
             }
           />
           <Route
-            path="/online-store/product/:id"
+            path="/product/:id"
             element={
               <ProductDetailPage
                 onAddToCart={addToCart}
@@ -185,14 +185,14 @@ const OnlineStoreApp: React.FC = () => {
             }
           />
           <Route
-            path="/online-store/login"
+            path="/login"
             element={
               <LoginPage
                 onLogin={handleLogin}
               />
             }
           />
-          <Route path="/online-store/*" element={<Navigate to="/online-store" replace />} />
+          <Route path="/*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
